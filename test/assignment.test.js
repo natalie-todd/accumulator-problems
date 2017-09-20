@@ -191,6 +191,11 @@ window.onload = function() {
       expect(allEqual("abbbbbbb")).to.deep.eq(false)
     })
 
+    it("returns false with the unequal letter(s) at the end of a string", function() {
+      expect(allEqual("aardvark")).to.deep.eq(false)
+      expect(allEqual("aaaal")).to.deep.eq(false)
+    })
+
   })
 
   describe('sumLetters', function() {
