@@ -30,13 +30,9 @@ For example, the tests require that to complete this challenge, your function mu
 results on the index page in the browser.
 */
 
-
-
-
-
-
-
-
+function sum(arr) {
+  return arr.reduce((acc, val) => acc + val, 0)
+}
 
 /*
 ----------------------------------------
@@ -48,15 +44,12 @@ Write function named doubleLetters that will take a string and double every lett
 Example: if you pass it "abc" then it should return "aabbcc"
 */
 
-
-
-
-
-
-
-
-
-
+function doubleLetters(str) {
+  return str
+    .split('')
+    .map(letter => letter + letter)
+    .join('')
+}
 /*
 ----------------------------------------
 CHALLENGE
@@ -67,13 +60,9 @@ Write function named doubleNumbers that will take an array of numbers and return
 Example: if you pass it [1,2,3] then it should return [2,4,6]
 */
 
-
-
-
-
-
-
-
+function doubleNumbers(nums) {
+  return nums.map(number => number * 2)
+}
 
 /*
 ----------------------------------------
@@ -89,14 +78,9 @@ Examples:
 - if you call multiplyNumbers([1,2,3], 5) you'd get [5,10,15]
 */
 
-
-
-
-
-
-
-
-
+function multiplyNumbers(arr, multiplier) {
+  return arr.map(number => number * multiplier)
+}
 
 /*
 ----------------------------------------
@@ -110,15 +94,12 @@ Example: if you pass it ["a", "b", "c"] and ["d", "e", "f"] then it should retur
 NOTE: you can assume each input will be the same length
 */
 
-
-
-
-
-
-
-
-
-
+function interleave(arr1, arr2) {
+  return arr1.reduce((acc, val, index) => {
+    acc = acc.concat(val, arr2[index])
+    return acc
+  }, [])
+}
 
 /*
 ----------------------------------------
@@ -130,12 +111,9 @@ Write function named createRange that will take a number and a default value and
 Example: if you pass it 4 and "Hello" then it should return ["Hello", "Hello", "Hello", "Hello"]
 */
 
-
-
-
-
-
-
+function createRange(count, seed) {
+  return Array(count).fill(seed)
+}
 
 /*
 ----------------------------------------
@@ -149,12 +127,12 @@ Example:
 If you pass it ["quick", "brown", "fox"] then it should return { "quick": 0, "brown": 1, "fox": 2 }
 */
 
-
-
-
-
-
-
+function flipArray(arr) {
+  return arr.reduce((acc, value, index) => {
+    acc[value] = index
+    return acc
+  }, {})
+}
 
 /*
 ----------------------------------------
@@ -169,13 +147,12 @@ If you pass it [[2014, "Horse"], [2015, "Sheep"]] then it should return { 2014: 
 
 */
 
-
-
-
-
-
-
-
+function arraysToObject(arr) {
+  return arr.reduce((acc, value) => {
+    acc[value[0]] = value[1]
+    return acc
+  }, {})
+}
 
 /*
 ----------------------------------------
@@ -189,16 +166,13 @@ Example:
 If you pass it "hello" then it should return "olleh"
 */
 
-
-
-
-
-
-
-
-
-
-
+function reverseString(str) {
+  return Array.from(str)
+    .map((char, index) => {
+      return str[str.length - index - 1]
+    })
+    .join('')
+}
 
 /*
 ----------------------------------------
@@ -214,12 +188,10 @@ If you pass it "yay" then it should return false because it's odd
 If you pass it "heehaw" then it should return false because "hee" doesn't equal "haw"
 */
 
-
-
-
-
-
-
+function repeats(str) {
+  if (str.length % 2 !== 0) return false
+  return str.slice(0, str.length * 0.5) === str.slice(str.length * 0.5)
+}
 
 /*
 ----------------------------------------
@@ -233,12 +205,14 @@ Example:
 If you pass it "abcdef" then it should return "ace" because those represent every other letter
 */
 
-
-
-
-
-
-
+function everyOther(str) {
+  return Array.prototype.reduce.call(str, (results, char, index) => {
+    if (index % 2 === 0) {
+      results += char
+    }
+    return results
+  }, '')
+}
 
 /*
 ----------------------------------------
@@ -253,12 +227,11 @@ If you pass "aaa" it should return true
 If you pass "aba" it should return false
 */
 
-
-
-
-
-
-
+function allEqual(str) {
+  if (!str) return true
+  const uniques = new Set(str)
+  return uniques.size === 1
+}
 
 /*
 ----------------------------------------
@@ -273,12 +246,11 @@ If you pass "45" it should return 9
 If you pass "246" it should return 12
 */
 
-
-
-
-
-
-
+function sumLetters(str) {
+  return sum(str
+    .split('')
+    .map(Number))
+}
 
 /*
 ----------------------------------------
@@ -292,14 +264,16 @@ Example:
 If you pass "you" it should return 2
 */
 
-
-
-
-
-
-
-
-
+function countVowels(str) {
+  const vowels = ['a', 'e', 'i', 'o', 'u']
+  return str.toLowerCase().split('')
+    .reduce((count, letter) => {
+      if (vowels.includes(letter)) {
+        count++
+      }
+      return count
+    }, 0)
+}
 
 /*
 ----------------------------------------
@@ -315,12 +289,9 @@ If you pass "you" it should return ["y", "o", "u"]
 NOTE: do not use the builtin `split` method
 */
 
-
-
-
-
-
-
+function split(str) {
+  return [...str]
+}
 
 /*
 ----------------------------------------
@@ -336,12 +307,9 @@ Example:
 If you pass "Hello" it should return [ 72, 101, 108, 108, 111 ]
 */
 
-
-
-
-
-
-
+function getCodePoints(str) {
+  return [...str].map(char => char.codePointAt(0))
+}
 
 /*
 ----------------------------------------
@@ -356,12 +324,13 @@ If you pass "Yo" it should return {Y: 0, o: 1}
 If you pass "Hello" it should return {H: 0, e: 1, l: 3, o: 4}
 */
 
-
-
-
-
-
-
+function letterMap(str) {
+  return Array.from(str)
+  .reduce((acc, char, index) => {
+    acc[char] = index
+    return acc
+  }, {})
+}
 
 /*
 ----------------------------------------
@@ -376,20 +345,21 @@ If you pass "Yo" it should return {Y: 1, o: 1}
 If you pass "Hello" it should return {"H": 1, "e": 1, "l": 2, "o": 1}
 */
 
-
-
-
-
-
-
-
+function letterCount(str) {
+  return Array.from(str)
+  .reduce((acc, char, index) => {
+    if (!acc[char]) { acc[char] = 0 }
+    acc[char] ++
+    return acc
+  }, {})
+}
 
 /*
 ----------------------------------------
 CHALLENGE
 ----------------------------------------
 
-Write a function named threeOdds that takes 2 numbers and returns true if there are 3 odd numbers _between_ those two numbers
+Write a function named threeOdds that takes 2 numbers and returns true if there are at least 3 odd numbers _between_ those two numbers
 
 Example:
 
@@ -397,14 +367,12 @@ If you pass 0,2 it should return false because the only number between 0 and 2 i
 If you pass 0,6 it should return true because between 0 and six (the numbers 1,2,3,4,5) there are three odds - 1, 3 and 5
 */
 
-
-
-
-
-
-
-
-
+function threeOdds(start, end) {
+  const range = Array.from({length: end - start}, (_, index) => start + index)
+  const oddCount = range.reduce((oddCount, num) => num % 2 !== 0 ? ++oddCount : oddCount, 0)
+  console.log('range', range)
+  return oddCount >= 3
+}
 
 /*
 ----------------------------------------
@@ -418,13 +386,13 @@ Example:
 If you pass "a", 3, "*" it should return "**a" - that is, a string of length 3, padded on the left by the "*" character
 */
 
-
-
-
-
-
-
-
+function leftPad(str, padLimit, padChar = ' ') {
+  if (padLimit - str.length <= 0) return str
+  return Array.from({length: padLimit - str.length})
+    .fill(padChar)
+    .join('')
+    .concat(str)
+}
 /*
 ----------------------------------------
 CHALLENGE
@@ -438,13 +406,10 @@ If you pass "a", 3 it should return "aaa"
 If you pass "b", 3 it should return "bb"
 */
 
-
-
-
-
-
-
-
+function createString(size, char) {
+  if (size <= 0) return ''
+  return Array(size).fill(char).join('')
+}
 /*
 ----------------------------------------
 CHALLENGE
@@ -460,12 +425,15 @@ If you pass 4 it should return 24 since that's 4 * 3 * 2 * 1
 If you pass 5 it should return 120 since that's 5 * 4 * 3 * 2 * 1
 */
 
-
-
-
-
-
-
+function factorial(num) {
+  if (num <= 0) return 1
+  let result = num
+  while (num > 1) {
+    num --
+    result = result * num
+  }
+  return result
+}
 
 /*
 ----------------------------------------
@@ -480,12 +448,9 @@ If you pass 1 it should return [1]
 If you pass 3 it should return [1,2,3]
 */
 
-
-
-
-
-
-
+function arrayOfNumbers(num) {
+  return Array.from({length: num}, (_, index) => 1 + index)
+}
 
 /*
 ----------------------------------------
@@ -499,12 +464,13 @@ Example:
 If you pass 1,4 it should return {"1": "odd", "2": "even", "3": "odd", "4": "even"}
 */
 
-
-
-
-
-
-
+function evenOdd(start, end) {
+  const range = Array.from({length: end - start}, (_, index) => start + index)
+  return range.reduce((acc, num) => {
+    acc[num] = num % 2 === 0 ? 'even' : 'odd'
+    return acc
+  }, {})
+}
 
 
 /*
