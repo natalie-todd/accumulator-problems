@@ -32,7 +32,13 @@ results on the index page in the browser.
 
 
 
-
+sum = (arr) => {
+    var sum = 0
+    for(i=0;i<arr.length; i++){
+        sum += arr[i]
+    }
+    return sum
+}
 
 
 
@@ -48,10 +54,13 @@ Write function named doubleLetters that will take a string and double every lett
 Example: if you pass it "abc" then it should return "aabbcc"
 */
 
-
-
-
-
+doubleLetters = (str) => {
+    let arr = str.split('')
+    for(i=0;i<arr.length;i++){
+        arr[i] = `${arr[i]}${arr[i]}`
+    }
+    return arr.join('')
+}
 
 
 
@@ -70,7 +79,12 @@ Example: if you pass it [1,2,3] then it should return [2,4,6]
 
 
 
-
+doubleNumbers = (arr) => {
+    for(i=0;i<arr.length;i++){
+        arr[i] += arr[i]
+    }
+    return arr
+}
 
 
 
@@ -90,10 +104,12 @@ Examples:
 */
 
 
-
-
-
-
+multiplyNumbers = (arr, num) => {
+    for(i=0;i<arr.length;i++){
+        arr[i] *= num
+    }
+    return arr
+}
 
 
 
@@ -111,11 +127,14 @@ NOTE: you can assume each input will be the same length
 */
 
 
-
-
-
-
-
+interleave = (arr1, arr2) => {
+    var yeah = []
+    for(i=0;i<arr1.length;i++){
+        yeah.push(arr1[i])
+        yeah.push(arr2[i])
+    }
+    return yeah
+}
 
 
 
@@ -131,7 +150,13 @@ Example: if you pass it 4 and "Hello" then it should return ["Hello", "Hello", "
 */
 
 
-
+createRange = (num, value) => {
+    let arr = []
+    for(i=0;i<num;i++){
+        arr.push(value)
+    }
+    return arr
+}  
 
 
 
@@ -150,11 +175,13 @@ If you pass it ["quick", "brown", "fox"] then it should return { "quick": 0, "br
 */
 
 
-
-
-
-
-
+flipArray = (arr) => {
+    var rv = {}
+    for (let i = 0; i < arr.length; ++i){
+        rv[arr[i]] = i
+    }
+    return rv;
+}
 
 /*
 ----------------------------------------
@@ -169,10 +196,13 @@ If you pass it [[2014, "Horse"], [2015, "Sheep"]] then it should return { 2014: 
 
 */
 
-
-
-
-
+arraysToObject = (arr) => {
+    var obj = {}
+    for(let i = 0; i < arr.length; ++i){
+        obj[arr[i][0]] = arr[i][1]
+    }
+    return obj
+}
 
 
 
@@ -191,12 +221,13 @@ If you pass it "hello" then it should return "olleh"
 
 
 
-
-
-
-
-
-
+reverseString = (str) => {
+    let reversed = ''
+    for(i=str.length-1;i>=0;i--){
+        reversed += str[i]
+    }
+    return reversed
+}
 
 
 
@@ -215,8 +246,10 @@ If you pass it "heehaw" then it should return false because "hee" doesn't equal 
 */
 
 
-
-
+repeats = (str) => {
+    if (str.length % 2 !== 0) return false
+    return str.slice(0, str.length * 0.5) === str.slice(str.length * 0.5)
+  }
 
 
 
@@ -235,7 +268,18 @@ If you pass it "abcdef" then it should return "ace" because those represent ever
 
 
 
-
+everyOther = (str) => {
+    var newStr = ''
+    if(str.length <= 1){
+        return str
+    }
+    for(i=0;i<str.length;i++){
+        if(i%2===0 || i === 0){
+            newStr += str[i]
+        }
+    }
+    return newStr
+}
 
 
 
@@ -253,10 +297,18 @@ If you pass "aaa" it should return true
 If you pass "aba" it should return false
 */
 
-
-
-
-
+allEqual = (str) => {
+    let compare = str[0]
+    let result = true
+    for(i=0;i<str.length;i++){
+        if(str[i] === compare){
+            result = true
+        } else {
+            result = false
+        }
+    }
+    return result
+}
 
 
 
@@ -273,9 +325,13 @@ If you pass "45" it should return 9
 If you pass "246" it should return 12
 */
 
-
-
-
+sumLetters = (str) => {
+    let sum = 0
+    for(i=0;i<str.length;i++){
+        sum += Number(str[i])
+    }
+    return sum
+}
 
 
 
@@ -293,11 +349,14 @@ If you pass "you" it should return 2
 */
 
 
-
-
-
-
-
+countVowels = (str) => {
+    let number = 0
+    for(i=0;i<str.length;i++){
+        let tOrF = ['a', 'e', 'i', 'o', 'u'].indexOf(str[i].toLowerCase()) !== -1
+        tOrF && (number +=1)
+    }
+    return number 
+}
 
 
 
@@ -316,10 +375,13 @@ NOTE: do not use the builtin `split` method
 */
 
 
-
-
-
-
+split = (str) => {
+    let arr = []
+    for(i=0;i<str.length;i++){
+        arr.push(str[i])
+    }
+    return arr
+}
 
 
 /*
@@ -336,10 +398,13 @@ Example:
 If you pass "Hello" it should return [ 72, 101, 108, 108, 111 ]
 */
 
-
-
-
-
+getCodePoints = (str) => {
+    let answer = []
+    for(i=0;i<str.length;i++){
+        answer.push(str[i].codePointAt(0))
+    }
+    return answer
+}
 
 
 
@@ -356,10 +421,13 @@ If you pass "Yo" it should return {Y: 0, o: 1}
 If you pass "Hello" it should return {H: 0, e: 1, l: 3, o: 4}
 */
 
-
-
-
-
+letterMap = (str) => {
+    var obj = {}
+    for(let i = 0; i < str.length; ++i){
+        obj[str[i]] = i
+    }
+    return obj
+}
 
 
 
@@ -376,12 +444,16 @@ If you pass "Yo" it should return {Y: 1, o: 1}
 If you pass "Hello" it should return {"H": 1, "e": 1, "l": 2, "o": 1}
 */
 
-
-
-
-
-
-
+letterCount = (str) => {
+    let obj = {}
+    for(i=0;i<str.length;i++){
+        if(!obj[str[i]]){
+            obj[str[i]] = 0;
+        }
+        ++obj[str[i]];
+    }
+    return obj
+}
 
 
 /*
@@ -398,10 +470,18 @@ If you pass 0,6 it should return true because between 0 and six (the numbers 1,2
 */
 
 
-
-
-
-
+threeOdds = (num1, num2) => {
+    let arr = []
+    for(i=num1;i<num2;i++){
+        if(i % 2 !== 0){
+            arr.push(i)
+        }
+        if(arr.length >= 3){
+            return true
+        }
+    }
+    return false
+}
 
 
 
@@ -419,10 +499,16 @@ If you pass "a", 3, "*" it should return "**a" - that is, a string of length 3, 
 */
 
 
-
-
-
-
+leftPad = (str, num, pad) => {
+    let padding = ''
+    if(str.length >= num){
+        return str
+    }
+    for(i=0;i<(num - str.length);i++){
+        padding += pad
+    }
+    return (padding += str)
+}
 
 
 /*
@@ -438,11 +524,14 @@ If you pass "a", 3 it should return "aaa"
 If you pass "b", 3 it should return "bb"
 */
 
-
-
-
-
-
+createString = (num, char) => {
+    let str = ''
+    for(i=0;i<num;i++){
+        str += char
+    }
+    return str
+}
+ 
 
 
 /*
@@ -461,10 +550,13 @@ If you pass 5 it should return 120 since that's 5 * 4 * 3 * 2 * 1
 */
 
 
-
-
-
-
+factorial = (num) => {
+    let answer = 1
+    for(i=1;i<=num;i++){
+        answer *= i
+    }
+    return answer
+}
 
 
 /*
@@ -480,10 +572,13 @@ If you pass 1 it should return [1]
 If you pass 3 it should return [1,2,3]
 */
 
-
-
-
-
+arrayOfNumbers = (num) => {
+    let arr = []
+    for(i=1;i<=num;i++){
+        arr.push(i)
+    }
+    return arr
+}
 
 
 
@@ -499,13 +594,19 @@ Example:
 If you pass 1,4 it should return {"1": "odd", "2": "even", "3": "odd", "4": "even"}
 */
 
-
-
-
-
-
-
-
+evenOdd = (num1, num2) => {
+    let obj = {}
+    if(num2 !== 0){
+        for(i=num1;i<=num2;i++){
+            if(i % 2 === 0){
+                obj[i] = 'even'
+            } else {
+                obj[i] = 'odd'
+            }
+        }
+    }
+    return obj
+}
 
 /*
 ----------------------------------------
@@ -520,12 +621,15 @@ If you pass 2,"d" it should return {"d": true, "dd": true}
 */
 
 
-
-
-
-
-
-
+growingKeys = (num, str) => {
+    let obj = {}
+    let current = ''
+    for(i=0;i<num;i++){
+        current += str
+        obj[current] = true
+    }
+    return obj
+}
 
 
 /*
@@ -541,10 +645,14 @@ If you pass [1,1], 1 it should return true
 If you pass [1,2], 1 it should return false
 */
 
-
-
-
-
+every = (arr, char) => {
+    for(i=0;i<arr.length;i++){
+        if(arr[i] !== char){
+            return false
+        }
+    }
+    return true
+}
 
 
 
@@ -562,10 +670,14 @@ If you pass [3,2], 1 it should return false
 */
 
 
-
-
-
-
+some = (arr, char) => {
+    for(i=0;i<arr.length;i++){
+        if(arr[i] === char){
+            return true
+        }
+    }
+    return false
+}
 
 
 /*
@@ -582,13 +694,23 @@ If you pass ["Sue", "Will", "Rachel"] it should return "Sue, Will and Rachel"
 */
 
 
-
-
-
-
-
-
-
+toSentence = (arr) => {
+    let sentence = ''
+    if(arr.length > 2){
+        for(i=0;i<arr.length;i++){
+            if(i === arr.length-2){
+                sentence += arr[i]
+            } else if (i !== arr.length-1){
+                sentence += arr[i] + ', '
+            } else {
+                sentence += ` and ${arr[i]}`
+            }
+        }
+    } else if (arr.length === 2){
+        sentence = `${arr[0]} and ${arr[1]}`
+    }
+    return sentence
+}
 
 
 
@@ -606,10 +728,13 @@ If you pass ["Sue", "Will"] it should return "SW"
 If you pass ["Java", Script", "Object", "Notation"] it should return "JSON"
 */
 
-
-
-
-
+acronym = (arr) => {
+    let str = ''
+    for(i=0; i<arr.length; i++){
+        str += arr[i][0]
+    }
+    return str
+}
 
 
 
@@ -626,13 +751,15 @@ If you pass [0,-3,2,5] it should return -3
 */
 
 
-
-
-
-
-
-
-
+min = (arr) => {
+    let num = arr[0]
+    for(i=0;i<arr.length;i++){
+        if(arr[i] < num){
+            num = arr[i]
+        }
+    }
+    return num
+}
 
 
 /*
@@ -648,11 +775,13 @@ If you pass [{id: 1, name: "Joe"}, {id: 2, name: "Sue"}] it should return {1: {i
 
 */
 
-
-
-
-
-
+index = (arr) => {
+    let obj = {}
+    for(i=0;i<arr.length;i++){
+        obj[Object.values(arr[i])[0]] = arr[i]
+    }
+    return obj
+}
 
 
 /*
@@ -667,10 +796,13 @@ Example:
 If you pass {id: 1, name: "Joe"} it should return {1: "id", Joe: "name"}
 */
 
-
-
-
-
+invert = (obj) => {
+    var newObj = {}
+    for(key in obj){
+        newObj[obj[key]] = key
+    }
+    return newObj
+}
 
 
 
@@ -689,10 +821,14 @@ Example:
 If you pass {"contract": "foo"}, "Fred" it should return {"contract-signed": "foo - Fred"}
 */
 
-
-
-
-
+addSignature = (name, obj) => {
+    let newObj = {}
+    for(key in obj){
+        let signed = `${key}-signed`
+        newObj[signed] = `${obj[key]} - ${name}`
+    }
+    return newObj
+}
 
 
 
@@ -708,10 +844,13 @@ Example:
 If you pass {name: "Will", age: 24} it should return ["name - will", "age - 24"]
 */
 
-
-
-
-
+pairs = (obj) => {
+    let arr = []
+    for(key in obj){
+        arr.push(`${key} - ${obj[key]}`)
+    }
+    return arr
+}
 
 
 
@@ -728,10 +867,13 @@ If you pass {a: 1, b: 2} it should return 3
 */
 
 
-
-
-
-
+sumValues = (obj) => {
+    let num = 0
+    for(key in obj){
+        num += obj[key]
+    }
+    return num
+}
 
 
 /*
@@ -747,13 +889,17 @@ If you pass {1999: 4036, 2000: 7654} it should return '2000'
 */
 
 
-
-
-
-
-
-
-
+biggestProperty = (obj) => {
+    let num = 0
+    let answer
+    for(key in obj){
+        if(obj[key] > num){
+            num = obj[key]
+            answer = key
+        }
+    }
+    return answer
+}
 
 
 
@@ -772,12 +918,13 @@ If you pass {1999: 4036, 2000: 7654} and 4036, it should return '1999'
 */
 
 
-
-
-
-
-
-
+keyForValue = (obj, val) => {
+    for(key in obj){
+        if(val === obj[key]){
+            return key
+        }
+    }
+}
 
 
 /*
@@ -793,11 +940,13 @@ If you pass {1999: 4036, 2000: 7654} and 4036, it should return true
 */
 
 
-
-
-
-
-
-
+containsValue = (obj, val) => {
+    for(key in obj){
+        if(val === obj[key]){
+            return true
+        }
+    }
+    return false
+}
 
 //
