@@ -9,8 +9,8 @@ Solution: This one has already been completed for you.
 */
 
 function test() {
- var string ="This Works!";
- return string;
+    var string = "This Works!";
+    return string;
 }
 
 
@@ -30,13 +30,19 @@ For example, the tests require that to complete this challenge, your function mu
 results on the index page in the browser.
 */
 
+arrayOfNumbers = [1, 2, 3];
 
-
-
-
-
-
-
+let sum = (input) => {
+    let total = 0;
+    if (input == 0) {
+        return 0;
+    } else {
+        for (let i = 0; i < input.length; i++) {
+            total += input[i];
+        }
+    }
+    return total;
+}
 
 /*
 ----------------------------------------
@@ -48,14 +54,22 @@ Write function named doubleLetters that will take a string and double every lett
 Example: if you pass it "abc" then it should return "aabbcc"
 */
 
+let test2 = 'abc';
 
-
-
-
-
-
-
-
+let doubleLetters = (input) => {
+    let doubled = [];
+    let array = input.split('');
+    if (input == '') {
+        return '';
+    } else {
+        for (let i = 0; i < array.length; i++) {
+            doubled.push(array[i]);
+            doubled.push(array[i]);
+        }
+        return doubled.join('');
+    }
+}
+doubleLetters(test2);
 
 /*
 ----------------------------------------
@@ -67,14 +81,20 @@ Write function named doubleNumbers that will take an array of numbers and return
 Example: if you pass it [1,2,3] then it should return [2,4,6]
 */
 
+// let testArray = [1, 2, 3];
+// let newTestArray = [];
 
-
-
-
-
-
-
-
+// let doubleNumbers = (input) => {
+//     if (input == '') {
+//         return [];
+//     } else {
+//         for (let i = 0; i < input.length; i++) {
+//             newTestArray.push(i*2);
+//         }
+//     }
+//     return newTestArray;
+// }
+// doubleNumbers(testArray);
 /*
 ----------------------------------------
 CHALLENGE
@@ -89,14 +109,9 @@ Examples:
 - if you call multiplyNumbers([1,2,3], 5) you'd get [5,10,15]
 */
 
+// let multiplyNumbers = (input) => {
 
-
-
-
-
-
-
-
+// }
 
 /*
 ----------------------------------------
@@ -110,20 +125,13 @@ Example: if you pass it ["a", "b", "c"] and ["d", "e", "f"] then it should retur
 NOTE: you can assume each input will be the same length
 */
 
+// let interleave = (input) => {
 
-
-
-
-
-
-
-
-
+// }
 
 /*
 ----------------------------------------
-CHALLENGE
-----------------------------------------
+CHALLENGE----------------------------------------
 
 Write function named createRange that will take a number and a default value and return an array of that many values
 
