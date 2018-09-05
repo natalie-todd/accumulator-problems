@@ -81,20 +81,18 @@ Write function named doubleNumbers that will take an array of numbers and return
 Example: if you pass it [1,2,3] then it should return [2,4,6]
 */
 
-// let testArray = [1, 2, 3];
-// let newTestArray = [];
+let doubleNumbers = (input) => {
+    let newTestArray = [];
+    if (input == '') {
+        return [];
+    } else {
+        for (let i = 0; i < input.length; i++) {
+            newTestArray.push(2 * input[i]);
+        }
+    }
+    return newTestArray;
+}
 
-// let doubleNumbers = (input) => {
-//     if (input == '') {
-//         return [];
-//     } else {
-//         for (let i = 0; i < input.length; i++) {
-//             newTestArray.push(i*2);
-//         }
-//     }
-//     return newTestArray;
-// }
-// doubleNumbers(testArray);
 /*
 ----------------------------------------
 CHALLENGE
@@ -108,10 +106,19 @@ Examples:
 - if you call multiplyNumbers([1,2,3], 0) you'd get [0,0,0]
 - if you call multiplyNumbers([1,2,3], 5) you'd get [5,10,15]
 */
+let multiplyNumbers = (input, another) => {
+    multipliedArray = [];
+    if (input == 0 && another == 0) {
+        return [];
+    } else {
+        for (let i = 0; i < input.length; i++) {
+            multipliedArray.push(another * input[i]);
+            console.log(multipliedArray);
+        }
+        return multipliedArray;
+    }
+}
 
-// let multiplyNumbers = (input) => {
-
-// }
 
 /*
 ----------------------------------------
@@ -125,9 +132,18 @@ Example: if you pass it ["a", "b", "c"] and ["d", "e", "f"] then it should retur
 NOTE: you can assume each input will be the same length
 */
 
-// let interleave = (input) => {
+interleave([1, 2, 3], [4, 5, 6])
 
-// }
+
+function interleave(input, input2) {
+    return input.reduce((accum, value, index) => {
+        console.log(index, 'accum:', accum, 'value:', value)
+        // console.log(input2[index])
+        accum = accum.concat([value, input2[index]])
+        return accum
+
+    }, [])
+}
 
 /*
 ----------------------------------------
@@ -178,7 +194,14 @@ If you pass it [[2014, "Horse"], [2015, "Sheep"]] then it should return { 2014: 
 */
 
 
-
+function arraysToObject(array) {
+    return array.reduce((obj, keyValue) => {
+      const [key, value] = keyValue
+      obj[key] = value
+      return obj
+    }, {})
+  }
+  arraysToObject([[2014, "Horse"], [2015, "Sheep"]])
 
 
 
