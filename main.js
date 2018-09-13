@@ -292,13 +292,21 @@ Example:
 If you pass "aaa" it should return true
 If you pass "aba" it should return false
 */
-
-
-
-
-
-
-
+// let allEqual = (str) => {
+//     if (str == '') {
+//         return 'true';
+//     } else {
+//         let arr = str.split('');
+//         console.log(arr);
+//         for (let i = 1; i < str.length; i++) {
+//             if (arr[i] !== arr[0]) {
+//                 return 'false';
+//             }
+//         }
+//         return 'true';
+//     }
+// }
+// allEqual('');
 
 /*
 ----------------------------------------
