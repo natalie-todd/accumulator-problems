@@ -154,12 +154,15 @@ Write function named createRange that will take a number and a default value and
 Example: if you pass it 4 and "Hello" then it should return ["Hello", "Hello", "Hello", "Hello"]
 */
 
+let createRange = (num, value) => {
+    let arrOfNum = [];
+    for (i = 0; i < num; i++) {
+        arrOfNum.push(value);
+    }
+    return arrOfNum;
+}
 
-
-
-
-
-
+createRange(4, 'Hello');
 
 /*
 ----------------------------------------
@@ -173,12 +176,15 @@ Example:
 If you pass it ["quick", "brown", "fox"] then it should return { "quick": 0, "brown": 1, "fox": 2 }
 */
 
-
-
-
-
-
-
+let flipArray = (array) => {
+    let obj = {};
+    for (let i = 0; i < array.length; i++) {
+        // obj[i]= array.id;
+        obj[array[i]] = i;
+    }
+    return obj;
+}
+flipArray(["quick", "brown", "fox"]);
 
 /*
 ----------------------------------------
@@ -196,17 +202,12 @@ If you pass it [[2014, "Horse"], [2015, "Sheep"]] then it should return { 2014: 
 
 function arraysToObject(array) {
     return array.reduce((obj, keyValue) => {
-      const [key, value] = keyValue
-      obj[key] = value
-      return obj
+        const [key, value] = keyValue
+        obj[key] = value
+        return obj
     }, {})
-  }
-  arraysToObject([[2014, "Horse"], [2015, "Sheep"]])
-
-
-
-
-
+}
+arraysToObject([[2014, "Horse"], [2015, "Sheep"]])
 
 /*
 ----------------------------------------
@@ -264,12 +265,20 @@ Example:
 If you pass it "abcdef" then it should return "ace" because those represent every other letter
 */
 
-
-
-
-
-
-
+let everyOther = (str) => {
+    let arr = str.split('');
+    let newArr = [];
+    console.log(arr);
+    for (let i = 0; i < arr.length; i++) {
+        if (i === 0) {
+            newArr.push(arr[i]);
+        } else if (i % 2 === 0) {
+            newArr.push(arr[i]);
+        }
+    }
+    return newArr.join('');
+}
+everyOther('abcdef');
 
 /*
 ----------------------------------------
